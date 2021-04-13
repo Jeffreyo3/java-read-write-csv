@@ -40,7 +40,8 @@ public class CSVProcessor {
         List<Property> propertyList = new ArrayList<>();
 
         /*
-         * Key:
+         * CSV COLUMN FORMAT/SCHEMA:
+         *
          * Index = 0
          * Living Space (sq ft) = 1
          * Beds = 2
@@ -48,9 +49,13 @@ public class CSVProcessor {
          * Zip = 4
          * Year = 5
          * List Price ($) = 6
+         *
          */
         for (int i = 1; i < data.size(); i++) {
             Property property = new Property();
+
+            //  data   .get(i)    .get(idx)                      .trim()
+            // [CSV] [i = row] [idx = column] [removes white space from left/right of string]
             property.setIndex(data.get(i).get(0).trim());
             property.setSqFt(data.get(i).get(1).trim());
             property.setBeds(data.get(i).get(2).trim());
